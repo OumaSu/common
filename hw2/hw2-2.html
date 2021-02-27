@@ -1,0 +1,15 @@
+<script>
+    // 2. Банковская программа.
+    // Пользователь вводит сумму вклада и процент, который будет начисляться ежегодно. Отобразить размер вклада поочередно на ближайшие 5 лет.
+
+    let userValue = prompt('enter value');
+    let userPercent = prompt('enter percent');
+
+    function calcTotal(value, percent, years) {
+        if (years == 1) {
+            return value * percent / 100 + value;
+        }
+        return calcTotal(value * percent / 100 + value, percent, --years);
+    }
+    alert(calcTotal(userValue, userPercent, 5))
+</script>

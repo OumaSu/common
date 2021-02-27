@@ -1,0 +1,35 @@
+<script>
+    // 1. Игра в загадки.
+    // a. Загадать загадку. Если ответ верен – поздравить пользователя. Затем сообщить, что игра окончена.
+    // b. Если ответ неверный – написать пользователю, что он не угадал.
+    // c. Добавить еще 3 загадки. Подсчитать количество правильных ответов, сообщить пользователю.
+    // d. (По желанию). В качестве верного ответа принимать несколько вариантов ответов. Например, «Стул», «стул», «табуретка» и так далее.
+
+    class Riddle {
+        constructor(text, answer, cheat) {
+            this.text = text;
+            this.answer = answer;
+            this.cheat = cheat;
+        }
+    }
+    let riddles = [
+        new Riddle('Речка спятила с ума — По домам пошла сама.', 'водопровод', 'cheat'),
+        new Riddle('Музыкант, певец, рассказчик — А всего труба да ящик.', 'граммофон', 'cheat'),
+        new Riddle('На раскрашенных страницах Много праздников хранится.', 'календарь', 'cheat'),
+        new Riddle('Ах, не трогайте меня: Обожгу и без огня!', 'крапива', 'cheat')
+    ];
+    let currentRiddle;
+    let wins = 0;
+    let userAnswer;
+    while (true) {
+        currentRiddle = riddles[Math.floor(Math.random() * riddles.length)];
+        alert(currentRiddle.text);
+        userAnswer = prompt('enter answer').toLowerCase();
+        if (userAnswer == currentRiddle.answer || userAnswer == 'cheat') {
+            alert(`you right. your score: ${++wins}`);
+        }
+        else {
+            alert('wrong answer')
+        }
+    }
+</script>
